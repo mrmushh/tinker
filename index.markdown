@@ -30,7 +30,7 @@ To start, simply input the number of servers working, indicate the amount of bus
 
     Net Sales: <input type="number" id="netSales" step="0.01"><br>
     Alcohol Sales: <input type="number" id="alcoholSales" step="0.01"><br>
-    Gratuity: <input type="number" id="gratuity" step="0.01"><br>
+    Gratuity (after fee!): <input type="number" id="gratuity" step="0.01"><br>
 </div>
 After that's done, click Submit! 
 
