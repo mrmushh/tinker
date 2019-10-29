@@ -79,6 +79,6 @@ function submitHandler() {
     let totalGratuity = getTotalGratuity(userData, tipouts);
     busserTipout.innerHTML = "Busser Tipout: $" + tipouts[0].toFixed(2);
     foodrunnerTipout.innerHTML = "Foodrunner Tipout: $" + tipouts[1].toFixed(2);
-    bartenderTipout.innerHTML = "Bartender Tipous: $" + tipouts[2].toFixed(2);
+    bartenderTipout.innerHTML = "Bartender Tipout: $" + tipouts[2].toFixed(2);
     amountYouOwn.innerHTML = "Amount You Own $" + totalGratuity.toFixed(2);
 }
