@@ -44,4 +44,6 @@
 <p id="bartenderTipout">Bartender Tipout:</p>
 <p id="amountYouOwn">Amount You Own:</p>
 
-<script src="{{ base.url | prepend: site.url }}/tinker/tipout.js"></script>
+
+<script src="{{ base.url | prepend: site.url }}tinker/tipout.js"></script>
+<script src="{{ base.url | prepend: site.url }}/tipout.js"></script>

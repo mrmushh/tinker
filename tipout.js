@@ -21,6 +21,7 @@ function getInputsFromDiv( divId ){
 
 function getPercentages({ servers, bussers, foodrunners, bartenders }) {
     let percentage_dict = {
+        0:[0.0, 0.0, 0.0],
         1:[0.015, 0.0675, 0.05],
         2:[0.015, 0.045, 0.05],
         3:[0.015, 0.0338, 0.05],
@@ -32,9 +33,7 @@ function getPercentages({ servers, bussers, foodrunners, bartenders }) {
 
     let percentages = [];
 
-    if(servers === 0){
-        return "Server number must be greater than 0"; // make it handle this error better
-    }else if (servers > 7){
+    if (servers > 7){
         percentages = percentage_dict[7];
     }else{
         percentages = percentage_dict[servers];
