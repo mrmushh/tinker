@@ -8,7 +8,7 @@ Below is a nifty gadget to help calculate tipout at the end of the shift.
 To start, simply input the number of servers working, indicate the amount of bussers, food runners, and bartenders.
 
 <div id="userInputs">
-    Servers: <input type="number" id="servers" step="0.01"><br>
+    Servers: <input type="number" id="servers" step="0.01" value="0"><br>
 
     Bussers: 
         <input type="radio" name="bussers" value="0" checked>0
