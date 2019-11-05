@@ -1,5 +1,5 @@
 function getInputsFromDiv( divId ){
-    // make and object to store all of the data from the inputs I have on the page
+    // make an object to store all of the data from the inputs I have on the page
     let userInputs= {};
     // divElements is an HTML collection that I can iterate through
     let divElements = divId.children;
@@ -7,11 +7,13 @@ function getInputsFromDiv( divId ){
     for(let i = 0; i < divElements.length; i++) {
         //harvest data from the checked radios (default value is 0)
         if(divElements[i].type === "radio" && divElements[i].checked){
-            userInputs[divElements[i].name] = parseFloat(divElements[i].value);
+            userInputs[divElements[i].name] = 0;
+            userInputs[divElements[i].name] += parseFloat(divElements[i].value);
         }
         //harvest data from the rest of the inputs of type number
         else if(divElements[i].type === "number" && divElements[i].value != null){
-            userInputs[divElements[i].id] = parseFloat(divElements[i].value);
+            userInputs[divElements[i].id] = 0;
+            userInputs[divElements[i].id] += parseFloat(divElements[i].value);
         }
     }
     return userInputs;
