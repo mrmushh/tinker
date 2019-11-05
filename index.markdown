@@ -6,19 +6,19 @@
 <p>To start, simply input the number of servers working, indicate the amount of bussers, food runners, and bartenders.</p>
 
 <div id="userInputs">
-    <p>Servers:</p> <input type="number" id="servers" step="0.01" value="0"><br>
+    Servers: <input type="number" id="servers" step="0.01" value="0"><br>
 
-    <p>Bussers:</p> 
+    Bussers: 
         <input type="radio" name="bussers" value="0" checked>0
         <input type="radio" name="bussers" value="1">1
         <input type="radio" name="bussers" value="2">2
         <br>
-    <p>Foodrunners:</p> 
+    Foodrunners:
         <input type="radio" name="foodrunners" value="0" checked>0
         <input type="radio" name="foodrunners" value="1">1
         <input type="radio" name="foodrunners" value="2">2
         <br>
-    <p>Bartenders:</p> 
+    Bartenders:
         <input type="radio" name="bartenders" value="0" checked>0
         <input type="radio" name="bartenders" value="1">1
         <input type="radio" name="bartenders" value="2">2
