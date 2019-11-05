@@ -1,3 +1,4 @@
+console.log("hello");
 function getInputsFromDiv( divId ){
     // make an object to store all of the data from the inputs I have on the page
     let userInputs= {};
