@@ -2,47 +2,51 @@
 # Feel free to add content and custom Front Matter to this file.
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 ---
+    <p>The shortened URL for this site is: <a href="http://www.bit.ly/laostips">bit.ly/laostips</a></p>
+    <p>To start, simply input the number of servers working, indicate the amount of bussers, foodrunners, and bartenders.</p>
+    <ul>
+        <li> Servers:
+            <input type="text" min="0" id="servers" oninput="submitHandler()" placeholder="0">
+        </li>
+        <li>Bussers:
+            <input type="radio" name="bussers" value="0" onclick="submitHandler()" checked>0
+            <input type="radio" name="bussers" value="1" onclick="submitHandler()">1
+            <input type="radio" name="bussers" value="2" onclick="submitHandler()">2
+        </li>
+        <li>Foodrunners:
+            <input type="radio" name="foodrunners" value="0" onclick="submitHandler()" checked>0
+            <input type="radio" name="foodrunners" value="1" onclick="submitHandler()">1
+            <input type="radio" name="foodrunners" value="2" onclick="submitHandler()">2
+        </li>
+        <li>Bartenders:
+            <input type="radio" name="bartenders" value="0" onclick="submitHandler()" checked>0
+            <input type="radio" name="bartenders" value="1" onclick="submitHandler()">1
+            <input type="radio" name="bartenders" value="2" onclick="submitHandler()">2
+        </li>
+    </ul>
 
-<p>To start, simply input the number of servers working, indicate the amount of bussers, food runners, and bartenders.</p>
+    <p>Now, fill in the next fields and we will automatically calculate the tipout for you.</p>
+    <h4>CASHOUT SHEET</h4>
+    <ul>
+        <li>DINING:
+            <input type="text" id="dining" placeholder="0" oninput="deductTax();submitHandler();">
+        </li>
+        <li>NET SALES: $<span id="netSales">0.00</span></li>
+        <li>ALCOHOL SALES:
+            <input type="text" id="alcoholSales" placeholder="0" oninput="submitHandler()">
+        </li>
+        <li>GRATUITY:
+            <input type="text" id="startingGratuity" placeholder="0" oninput="deductFee();submitHandler();">
+        </li>
+        <li>CREDIT CARD FEE: $<span id="fee">0.00</span></li>
+        <li>NET GRATUITY: $<span id="resultingGratuity">0.00</span></li>
+    </ul>
 
-<div id="userInputs">
-    Servers: <input type="number" id="servers" step="0.01" value="0"><br>
-
-    Bussers: 
-        <input type="radio" name="bussers" value="0" checked>0
-        <input type="radio" name="bussers" value="1">1
-        <input type="radio" name="bussers" value="2">2
-        <br>
-    Foodrunners:
-        <input type="radio" name="foodrunners" value="0" checked>0
-        <input type="radio" name="foodrunners" value="1">1
-        <input type="radio" name="foodrunners" value="2">2
-        <br>
-    Bartenders:
-        <input type="radio" name="bartenders" value="0" checked>0
-        <input type="radio" name="bartenders" value="1">1
-        <input type="radio" name="bartenders" value="2">2
-        <br>
-
-    Then, type in your Net Sales, Alcohol Sales, and Gratuity in the appropriate boxes.<br>
-
-    Net Sales:
-        <input type="number" id="netSales" value="0" step="0.01"><br>
-    Alcohol Sales:
-        <input type="number" id="alcoholSales" value="0" step="0.01"><br>
-    Gratuity (after fee!):
-        <input type="number" id="gratuity" value="0" step="0.01"><br>
-</div>
-<p>After that's done, click Submit! </p>
-
-<button type="button" onclick="submitHandler(userInputs)">Submit</button>
-
-<p>Now you will see the breakdown of your tipout below.</p>
-
-<p id="busserTipout">Busser Tipout:</p>
-<p id="foodrunnerTipout">Foodrunner Tipout:</p>
-<p id="bartenderTipout">Bartender Tipout:</p>
-<p id="amountYouOwn">Amount You Own:</p>
-
-
+    <h4>AMOUNT PAID TO</h4>
+    <ul>
+        <li>BUS: $<span id="busserTipout">0.00</span></li>
+        <li>RUNNER: $<span id="foodrunnerTipout">0.00</span></li>
+        <li>BAR: $<span id="bartenderTipout">0.00</span></li>
+        <li>AMOUNT YOU OWN: $<span id="amountYouOwn">0.00</span></li>
+    </ul>
 <script src="{{ base.url | prepend: site.url }}/tinker/tipout.js"></script>
