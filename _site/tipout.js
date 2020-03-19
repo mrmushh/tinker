@@ -1,8 +1,8 @@
 function isBonus() {
     if ((getInput("alcoholSales") / netSales.innerHTML) >= 0.3){
-        return true;
+        bonus.innerHTML = "FREE DRINK!";
     }else{
-        return false;
+        bonus.innerHTML = "";
     }
 }
 function getInput(name) {

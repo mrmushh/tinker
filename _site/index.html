@@ -60,11 +60,12 @@
 <h4>CASHOUT SHEET</h4>
 <ul>
     <li>DINING:
-        <input type="text" id="dining" placeholder="0" oninput="deductTax();submitHandler();" />
+        <input type="text" id="dining" placeholder="0" oninput="deductTax();submitHandler();isBonus();" />
     </li>
     <li>NET SALES: $<span id="netSales">0.00</span></li>
     <li>ALCOHOL SALES:
-        <input type="text" id="alcoholSales" placeholder="0" oninput="submitHandler()" />
+        <input type="text" id="alcoholSales" placeholder="0" oninput="submitHandler();isBonus()" />
+        <span id="bonus" style="color:red"></span>
     </li>
     <li>GRATUITY:
         <input type="text" id="startingGratuity" placeholder="0" oninput="deductFee();submitHandler();" />
