@@ -37,7 +37,7 @@
 <p>To start, simply input the number of servers working, indicate the amount of bussers, foodrunners, and bartenders.</p>
 <ul>
     <li> Servers:
-        <input type="text" min="0" id="servers" oninput="submitHandler()" placeholder="0" />
+        <input type="text" min="0" id="servers" oninput="submitHandler()" placeholder="0" size="10" />
     </li>
     <li>Bussers:
         <input type="radio" name="bussers" value="0" onclick="submitHandler()" checked="" />0
@@ -60,15 +60,15 @@
 <h4>CASHOUT SHEET</h4>
 <ul>
     <li>DINING:
-        <input type="text" id="dining" placeholder="0" oninput="deductTax();submitHandler();isBonus();" />
+        <input type="text" id="dining" placeholder="0" oninput="deductTax();submitHandler();isBonus();" size="10" />
     </li>
     <li>NET SALES: $<span id="netSales">0.00</span></li>
     <li>ALCOHOL SALES:
-        <input type="text" id="alcoholSales" placeholder="0" oninput="submitHandler();isBonus()" />
+        <input type="text" id="alcoholSales" placeholder="0" oninput="submitHandler();isBonus()" size="10" />
         <span id="bonus" style="color:red"></span>
     </li>
     <li>GRATUITY:
-        <input type="text" id="startingGratuity" placeholder="0" oninput="deductFee();submitHandler();" />
+        <input type="text" id="startingGratuity" placeholder="0" oninput="deductFee();submitHandler();" size="10" />
     </li>
     <li>CREDIT CARD FEE: $<span id="fee">0.00</span></li>
     <li>NET GRATUITY: $<span id="resultingGratuity">0.00</span></li>
