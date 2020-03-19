@@ -7,9 +7,10 @@ function isBonus() {
 }
 function getInput(name) {
     let x = document.getElementById(name).value;
-    if (x == "") {
-        return x = 0;
-    } else if (name == "servers") {
+    if ((x == "") || (!Number.isInteger(parseFloat(x)))) {
+        return x = 0; 
+    }
+    if (name == "servers") {
         return parseInt(x);
     } else if (name == "dining"){
         return parseFloat(x) / 1.1;
