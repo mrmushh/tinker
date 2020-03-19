@@ -1,86 +1,110 @@
-console.log("hello");
-function getInputsFromDiv( divId ){
-    // make an object to store all of the data from the inputs I have on the page
-    let userInputs= {};
-    // divElements is an HTML collection that I can iterate through
-    let divElements = divId.children;
-
-    for(let i = 0; i < divElements.length; i++) {
-        //harvest data from the checked radios (default value is 0)
-        if(divElements[i].type === "radio" && divElements[i].checked){
-            userInputs[divElements[i].name] = parseFloat(0);
-            userInputs[divElements[i].name] += parseFloat(divElements[i].value);
-        }
-        //harvest data from the rest of the inputs of type number
-        else if(divElements[i].type === "number" && divElements[i].value != null){
-            userInputs[divElements[i].id] = parseFloat(0);
-            userInputs[divElements[i].id] += parseFloat(divElements[i].value);
-        }
+function isBonus() {
+    if ((getInput("alcoholSales") / netSales.innerHTML) >= 0.3){
+        return true;
+    }else{
+        return false;
     }
-    return userInputs;
+}
+function getInput(name) {
+    let x = document.getElementById(name).value;
+    if (x == "") {
+        return x = 0;
+    } else if (name == "servers") {
+        return parseInt(x);
+    } else if (name == "dining"){
+        return parseFloat(x) / 1.1;
+    } else {
+        return parseFloat(x);
+    }
 }
 
-function getPercentages({ servers, bussers, foodrunners, bartenders }) {
-    let percentage_dict = {
-        0:[0.0, 0.0, 0.0],
-        1:[0.015, 0.0675, 0.05],
-        2:[0.015, 0.045, 0.05],
-        3:[0.015, 0.0338, 0.05],
-        4:[0.015, 0.027, 0.05],
-        5:[0.015, 0.0225, 0.05],
-        6:[0.015, 0.0225, 0.05],
-        7:[0.015, 0.027, 0.05]
-    };
+function getRadioInput(name) {
+    let radio = document.getElementsByName(name);
+    for (i = 0; i < radio.length; i++) {
+        if (radio[i].checked) {
+            return parseInt(radio[i].value);
+        }
+    }
+}
 
+function deductTax() {
+    netSales.innerHTML = getInput("dining").toFixed(2);
+}
+
+function deductFee() {
+    let startingGratuity = getInput("startingGratuity");
+    let deduct = startingGratuity * 0.035
+    let leftover = startingGratuity - deduct;
+    fee.innerHTML = deduct.toFixed(2);
+    resultingGratuity.innerHTML = leftover.toFixed(2);
+}
+
+function getPercentages() {
+    let servers = getInput("servers");
+    let bussers = getRadioInput("bussers");
+    let foodrunners = getRadioInput("foodrunners");
+    let bartenders = getRadioInput("bartenders");
+
+    let percentage_dict = {
+        0: [0.0, 0.0, 0.0],
+        1: [0.015, 0.0675, 0.05],
+        2: [0.015, 0.045, 0.05],
+        3: [0.015, 0.0338, 0.05],
+        4: [0.015, 0.027, 0.05],
+        5: [0.015, 0.0225, 0.05],
+        6: [0.015, 0.0225, 0.05],
+        7: [0.015, 0.027, 0.05]
+    };
     let percentages = [];
 
-    if (servers > 7){
+    if (servers > 7) {
         percentages = percentage_dict[7];
-    }else{
+    } else if ((servers >= 0) && (servers <= 7)) {
         percentages = percentage_dict[servers];
+    } else {
+        percentages = percentage_dict[0];
     }
-
-    if (bussers === 2){
+    if (bussers === 2) {
         percentages[0] += 0.005;
-    }else if (bussers === 0){
+    } else if (bussers === 0) {
         percentages[0] = 0;
     }
-
-    if (foodrunners === 0){
+    if (foodrunners === 0) {
         percentages[1] = 0;
     }
-
-    if (bartenders === 0){
+    if (bartenders === 0) {
         percentages[2] = 0;
     }
 
     return percentages;
 }
 
-function getTipouts({ netSales, alcoholSales}, percentages) {
+function getTipouts(percentages) {
+    let dining = getInput("dining")
+    let alcoholSales = getInput("alcoholSales")
     let tipouts = [0.0, 0.0, 0.0];
     for( let i = 0; i < 2; i++){
-        tipouts[i] = netSales * percentages[i];        
+        tipouts[i] = dining * percentages[i];        
+        tipouts[i].toFixed(2);
     }
     tipouts[2] = alcoholSales * percentages[2];
+    tipouts[2].toFixed(2);
     return tipouts;
 }
 
-function getTotalGratuity({gratuity}, tipouts){
-    let total = gratuity;
-    for( let i = 0; i < tipouts.length; i++){
+function getTotalGratuity(tipouts){
+    let total = parseFloat(document.getElementById("resultingGratuity").innerHTML);
+    for( let i = 0; i < tipouts.length; i++ ){
         total -= tipouts[i];
     }
     return total;
 }
 
 function submitHandler() {
-    let userData = getInputsFromDiv(userInputs);
-    let percentages = getPercentages(userData);
-    let tipouts = getTipouts(userData, percentages);
-    let totalGratuity = getTotalGratuity(userData, tipouts);
-    busserTipout.innerHTML = "Busser Tipout: $" + tipouts[0].toFixed(2);
-    foodrunnerTipout.innerHTML = "Foodrunner Tipout: $" + tipouts[1].toFixed(2);
-    bartenderTipout.innerHTML = "Bartender Tipout: $" + tipouts[2].toFixed(2);
-    amountYouOwn.innerHTML = "Amount You Own $" + totalGratuity.toFixed(2);
+    let tipouts = getTipouts(getPercentages());
+    let totalGratuity = getTotalGratuity(tipouts);
+    busserTipout.innerHTML = tipouts[0].toFixed(2);
+    foodrunnerTipout.innerHTML = tipouts[1].toFixed(2);
+    bartenderTipout.innerHTML = tipouts[2].toFixed(2);
+    amountYouOwn.innerHTML = totalGratuity.toFixed(2);
 }
