@@ -19,7 +19,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=f725701c551e8716d0ccd190ebf983954c9a704b">
+    <link rel="stylesheet" href="/assets/css/style.css?v=534850061f5f01a699ae8b25a9bec1fa687632cc">
   </head>
   <body>
     <section class="page-header">
@@ -60,11 +60,12 @@
 <h4>CASHOUT SHEET</h4>
 <ul>
     <li>DINING:
-        <input type="text" id="dining" placeholder="0" oninput="deductTax();submitHandler();" />
+        <input type="text" id="dining" placeholder="0" oninput="deductTax();submitHandler();isBonus();" />
     </li>
     <li>NET SALES: $<span id="netSales">0.00</span></li>
     <li>ALCOHOL SALES:
-        <input type="text" id="alcoholSales" placeholder="0" oninput="submitHandler()" />
+        <input type="text" id="alcoholSales" placeholder="0" oninput="submitHandler();isBonus()" />
+        <span id="bonus" style="color:red"></span>
     </li>
     <li>GRATUITY:
         <input type="text" id="startingGratuity" placeholder="0" oninput="deductFee();submitHandler();" />
@@ -81,9 +82,9 @@
     <li>AMOUNT YOU OWN: $<span id="amountYouOwn">0.00</span></li>
 </ul>
 
-<!-- <script src="http://localhost:4000/tinker/tipout.js"></script> -->
-<script src="http://localhost:4000//tipout.js"></script>
+<script src="http://localhost:4000/tinker/tipout.js"></script>
 
+<!-- <script src="http://localhost:4000//tipout.js"></script> -->
 
 
       <footer class="site-footer">
