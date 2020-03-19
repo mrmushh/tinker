@@ -35,7 +35,7 @@
     </li>
     <li>NET SALES: $<span id="netSales">0.00</span></li>
     <li>ALCOHOL SALES:
-        <input type="text" id="alcoholSales" placeholder="0" oninput="submitHandler();isBonus()" size="10">
+        <input type="text" id="alcoholSales" placeholder="0" oninput="submitHandler();isBonus()" size="10"><br>
         <span id="bonus" style="color:red"></span>
     </li>
     <li>GRATUITY:
