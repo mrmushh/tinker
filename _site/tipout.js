@@ -5,6 +5,7 @@ function isBonus() {
         bonus.innerHTML = "";
     }
 }
+
 function getInput(name) {
     let x = document.getElementById(name).value;
     if ((x == "") || (!Number.isInteger(parseFloat(x)))) {
