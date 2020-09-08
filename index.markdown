@@ -1,8 +1,3 @@
----
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
----
-
 <h2>Welcome!</h2>
 <p>The shortened URL for this site is: <a href="http://www.bit.ly/lit-tips">bit.ly/lit-tips</a></p>
 <p>To start, simply input the number of servers working, indicate the amount of bussers, foodrunners, and bartenders.</p>
