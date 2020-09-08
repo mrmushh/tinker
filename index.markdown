@@ -4,7 +4,7 @@
 ---
 
 <h2>Welcome!</h2>
-<p>The shortened URL for this site is: <a href="http://www.bit.ly/laostips">bit.ly/laostips</a></p>
+<p>The shortened URL for this site is: <a href="http://www.bit.ly/laostips">bit.ly/lit-tips</a></p>
 <p>To start, simply input the number of servers working, indicate the amount of bussers, foodrunners, and bartenders.</p>
 <ul>
     <li> Servers:
